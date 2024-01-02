@@ -23,6 +23,10 @@ def FontCourier():
     global text
     text.config(font="Courier")
 
+def FontArial():
+    global text
+    text.config(font="Arial")
+
 # Save Button
 button=Button(root, text="Save", command=saveas)
 button.grid()
@@ -36,8 +40,10 @@ font["menu"]=font.menu
 
 helvetica=IntVar()
 courier=IntVar()
+arial=IntVar()
 
 font.menu.add_checkbutton(label="Courier", variable=courier, command=FontCourier)
 font.menu.add_checkbutton(label="Helvetica", variable=helvetica, command=FontHelvetica)
+font.menu.add_checkbutton(label="Arial", variable=arial, command=FontArial)
 
 root.mainloop()
