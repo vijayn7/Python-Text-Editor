@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import filedialog
 
 root=Tk("Text Editor")
+
+#Text Area
 text=Text(root)
 text.grid()
 
@@ -13,9 +15,6 @@ def saveas():
     file1.write(t)
     file1.close()
 
-button=Button(root, text="Save", command=saveas)
-button.grid()
-
 def FontHelvetica():
     global text
     text.config(font="Helvetica")
@@ -24,15 +23,21 @@ def FontCourier():
     global text
     text.config(font="Courier")
 
+# Save Button
+button=Button(root, text="Save", command=saveas)
+button.grid()
+
+#Font Button
 font=Menubutton(root, text="Font") 
 font.grid() 
+
 font.menu=Menu(font, tearoff=0) 
 font["menu"]=font.menu
-helvetica=IntVar() 
+
+helvetica=IntVar()
 courier=IntVar()
-font.menu.add_checkbutton(label="Courier", variable=courier,
-command=FontCourier)
-font.menu.add_checkbutton(label="Helvetica", variable=helvetica, 
-command=FontHelvetica)
+
+font.menu.add_checkbutton(label="Courier", variable=courier, command=FontCourier)
+font.menu.add_checkbutton(label="Helvetica", variable=helvetica, command=FontHelvetica)
 
 root.mainloop()
